@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DemoWebApplication1.Models.student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("go to create", "Create");
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Roll No </th>
+                    <th>Name </th>
+                    <th>qualification </th>
+                    <th>percentage </th>
+                   
+                    <th>Action</th>
+                   
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                <tr>
+                    <td>@d.rno</td>
+                    <td>@d.name</td>
+                    <td>@d.qualification</td>
+                    <td>@d.percentage</td>
+                    
+                    <td> @Html.ActionLink("Edit", "Edit", new { @id = d.rno })</td>
+                    &nbsp;
+                    <td> @Html.ActionLink("Delete", "Delete", new { @id = d.rno })</td>
+
+                </tr>
+                  }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
